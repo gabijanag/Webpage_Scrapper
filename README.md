@@ -12,7 +12,7 @@ It fetches data from the website and saves it into a .csv file.
 
 * ```pip install -r requirements.txt```
 
-* ```python scrapper.py```
+* ```python main.py```
 
 ## Usage
 
