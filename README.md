@@ -6,11 +6,13 @@ It fetches data from the website and saves it into a .csv file.
 
 ## Installation
 
-Git clone:
-```
-git clone https://github.com/gabijanag/Webpage_Scrapper.git
-```
-Then put the cloned directory into your ```PATH```, or run ```./setup.py install``` to install the scrapper to a permanent path.
+* ```git clone``` this repo
+
+* ```cd Scrapper```
+
+* ```pip install -r requirements.txt```
+
+* ```python scrapper.py```
 
 ## Usage
 
