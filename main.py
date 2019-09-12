@@ -12,22 +12,27 @@ r = requests.get('https://www.bbc.com/news')
 soup = BeautifulSoup(r.content, 'lxml')
 
 # get all the article titles
-headings = soup.find_all(class_='gs-c-promo-heading__title')
+headings = soup.find_all(class_='gs-c-promo-heading')
 print(headings)
 headingslist =[]
 for item in headings:
     headingslist.append(item.text)
 
-
-print(len(headings)) #how many headings are there
+# print(len(headings)) #how many headings are there
 print(len(headingslist)) #check how many scraped
-print(headingslist)
+
+
+# get all the URL corresponding to the article titles
+urls = []
+for url in headings:
+    urls.append(url.get('href'))
+
+print(urls)
+print(len(urls))
+
 
 # put all the items into a csv file
 import numpy as np
-np.savetxt("Scraper.csv", headingslist, delimiter=",", fmt='%s', header='Article Titles')
-
-# in case you have multiple lists that need to be stacked
-#
-# np.savetxt("scraper.csv", np.column_stack((headingslist, \
-# urllist)), delimiter=",", fmt='%s', header=header)
+headers = 'Article Titles' 'Urls'
+np.savetxt("scraper.csv", np.column_stack((headingslist, \
+urls)), delimiter=" | ", fmt='%s', header='Article Title | URL')
